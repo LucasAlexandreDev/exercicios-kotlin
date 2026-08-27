@@ -20,7 +20,7 @@ fun main (){
         return result
     }
 
-    //numberParImpar(2) // Aceita somente número INT
+    numberParImpar(2)
 
 
     // ---| EXERCÍCIO 02 |---
@@ -45,19 +45,22 @@ fun main (){
 
     // ---| EXERCÍCIO 03 |---
 
-    fun faixaEtária(idade: Int): String{
 
-        when(idade){
+    fun faixaEtaria(idade: Int): String {
 
-            in 11 downTo 0 -> println(" A sua idade é de $idade anos! Você é uma CRIANÇA")
-            in 12 .. 17    -> println("A sua idade é de $idade anos! Você é um ADOLESCENTE")
-            in 28 until 60 -> println(" A sua idade é de $idade anos! Você é um IDOSO")
+        val mensagem = when (idade) {
+
+            in 11 downTo 0  -> "A sua idade é de $idade anos! Você é uma CRIANÇA"
+            in 12 .. 17     -> "A sua idade é de $idade anos! Você é um ADOLESCENTE"
+            in 18 until 60  -> "A sua idade é de $idade anos! Você é um ADULTO"
+            else                  -> "A sua idade é de $idade anos! Você é um IDOSO"
         }
 
-        return ""
+        return mensagem
     }
 
-    println(faixaEtária(32))
+
+    println(faixaEtaria(60))
 
 
     // ---| EXERCÍCIO 04 |---
@@ -80,7 +83,7 @@ fun main (){
         return result
     }
 
-    val numeros = listOf(1,2,3,4,5)
+    val numeros = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
     println(somaArrays(numeros))
 
 
@@ -104,4 +107,56 @@ fun main (){
     }
 
     contagemRegressiva(3)
+
+    // ---| EXERCÍCIO 08 |---
+
+    fun somarParesComFor(numeros: List<Int>): Int {
+
+        var soma = 0
+
+        for (numero in numeros) {
+
+            if (numero % 2 == 0) {
+                soma += numero
+            }
+        }
+
+        return soma
+    }
+
+    println(somarParesComFor(numeros))
+
+    // ---| EXERCÍCIO 09 |---
+
+    fun dobroNumerico(number: Int): Int{
+
+        val result = ( number * 2 )
+        return result
+    }
+
+    println(dobroNumerico(10))
+
+
+    // ---| EXERCÍCIO 10 |---
+
+    fun mediaEscolar(nota1: Int, nota2: Int, nota3: Int): Int{
+
+        val somaNotas = nota1 + nota2 + nota3
+        val result    = somaNotas / 3
+        return result
+    }
+
+    println(mediaEscolar(5, 5, 5))
+
+
+    // ---| EXERCÍCIO 11 |---
+
+    fun conversorTemperatura(celsius: Double): Double{
+
+        val fahrenheit = (celsius * 1.8) + 32
+        return fahrenheit
+    }
+
+    println(conversorTemperatura(3.5))
 }
+
