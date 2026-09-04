@@ -232,5 +232,126 @@ fun main () {
 
     // ---| EXERCÍCIO 16 |---
 
-}
+    fun fatorial(): String {
 
+        val numberFatorial = 10
+        var texto = ""
+
+        for (i in numberFatorial downTo 1) {
+
+            texto = "$numberFatorial! = $i * $i"
+        }
+
+        return texto
+    }
+
+    //fatorial()
+
+
+    // ---| EXERCÍCIO 17 |---
+
+    open class Pessoa{
+
+        var nome: String = ""
+
+            get() {
+                return field.uppercase()
+            }
+
+        var idade: Int = 0
+
+            set(value){
+
+                field = if (value >= 0) value else 0
+            }
+
+        var cidade: String = ""
+
+            get() {
+                return field.uppercase()
+            }
+
+        open fun mensagempersonalizada(): String{
+            val mensagem = ("O ser humano $nome tem $idade anos de idade e mora em $cidade!")
+            return mensagem
+        }
+    }
+
+    val pessoa = Pessoa()
+
+    pessoa.nome   = "Maria"
+    pessoa.idade  = 25
+    pessoa.cidade = "São Paulo"
+
+    //println(pessoa.mensagempersonalizada())
+
+
+    // ---| EXERCÍCIO 18 |---
+
+    fun produtoCaro(): Double{
+
+        val produto = mapOf(
+
+            "Celular"    to 38.87,
+            "Computador" to 45.00,
+            "Mouse"      to 20.00
+        )
+
+        val result = produto.values.max()
+        return result
+    }
+
+    //produtoCaro()
+
+
+    // ---| EXERCÍCIO 19 |---
+
+    class ContaBancaria{
+
+        var nomeTitular: String = ""
+            get() = field.uppercase()
+
+        private var saldo: Double = 0.0
+
+        fun depositar(number: Double) {
+            saldo += number
+        }
+
+        fun sacar(number: Double) {
+            saldo -= number
+        }
+
+        fun consultar(): Double{
+            return saldo
+        }
+    }
+
+    val contaBancaria = ContaBancaria()
+
+    //println(contaBancaria.depositar(300.00))
+    //println(contaBancaria.sacar(200.00))
+    //println(contaBancaria.consultar())
+
+
+    // ---| EXERCÍCIO 20 |---
+
+    open class Funcionario{
+
+        var nome: String = ""
+        var contaBancaria = ContaBancaria()
+        var salario = contaBancaria.consultar()
+
+        open fun salario(): Double{
+            return salario
+        }
+    }
+
+    class Gerente: Funcionario(){
+
+        override fun salario(): Double{
+
+            val acrescimo = ( 20 / 100 ) * salario
+            return acrescimo
+        }
+    }
+}
