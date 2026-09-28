@@ -1,357 +1,106 @@
-import java.sql.Array
-import kotlin.collections.toList
-import kotlin.time.measureTime
+fun main() {
 
-fun main () {
+    // ---| TESTE EXERCÍCIO 1 |---
 
-    // ---| LISTA DE EXERCÍCIOS |---
+    println("EXERCÍCIO 1 - FORMA PURA")
+    exercicio1Puro(10)
 
-    // ---| EXERCÍCIO 01 |---
+    println("EXERCÍCIO 1 - FORMA COM MÉTODOS")
+    exercicio1ComMetodos(10)
 
-    fun numberParImpar(number: Int): Int {
 
-        val result = number % 2
+    // ---| TESTE EXERCÍCIO 2 |---
 
-        when (result) {
+    println("EXERCÍCIO 2 - FORMA PURA")
+    exercicio2Puro(-5)
 
-            0 -> println(" O $number é um número PAR")
-            1 -> println(" O $number é um número IMPAR")
-        }
+    println("EXERCÍCIO 2 - FORMA COM MÉTODOS")
+    exercicio2ComMetodos(-5)
 
-        return result
-    }
 
-    //numberParImpar(2)
+    // ---| TESTE EXERCÍCIO 3 |---
 
+    println("EXERCÍCIO 3 - FORMA PURA")
+    exercicio3Puro(20)
 
-    // ---| EXERCÍCIO 02 |---
+    println("EXERCÍCIO 3 - FORMA COM MÉTODOS")
+    exercicio3ComMetodos(20)
 
-    fun tipoNumerico(number: Int): String {
 
-        val status = if (number == 0) {
-            "ZERO"
+    // ---| TESTE EXERCÍCIO 4 |---
 
-        } else if (number >= 0) {
-            "POSITIVO"
+    println("EXERCÍCIO 4 - FORMA PURA")
+    exercicio4Puro(5)
 
-        } else {
-            "NEGATIVO"
-        }
+    println("EXERCÍCIO 4 - FORMA COM MÉTODOS")
+    exercicio4ComMetodos(5)
 
-        val result = ("O número $number é $status")
-        return result
-    }
 
-    //println(tipoNumerico(10))
+    // ---| TESTE EXERCÍCIO 5 |---
 
-    // ---| EXERCÍCIO 03 |---
+    val numerosExercicio5 = arrayOf(1, 2, 3, 4)
 
+    println("EXERCÍCIO 5 - FORMA PURA")
+    println(exercicio5Puro(numerosExercicio5))
 
-    fun faixaEtaria(idade: Int): String {
+    println("EXERCÍCIO 5 - FORMA COM MÉTODOS")
+    println(exercicio5ComMetodos(numerosExercicio5))
 
-        val mensagem = when (idade) {
 
-            in 11 downTo 0 -> "A sua idade é de $idade anos! Você é uma CRIANÇA"
-            in 12..17 -> "A sua idade é de $idade anos! Você é um ADOLESCENTE"
-            in 18 until 60 -> "A sua idade é de $idade anos! Você é um ADULTO"
-            else -> "A sua idade é de $idade anos! Você é um IDOSO"
-        }
+    // ---| TESTE EXERCÍCIO 6 |---
 
-        return mensagem
-    }
+    val numerosExercicio6 = arrayOf(5, 8, 2, 10, 3)
 
+    println("EXERCÍCIO 6 - FORMA PURA")
+    println(exercicio6Puro(numerosExercicio6))
 
-    //println(faixaEtaria(60))
+    println("EXERCÍCIO 6 - FORMA COM MÉTODOS")
+    println(exercicio6ComMetodos(numerosExercicio6))
 
 
-    // ---| EXERCÍCIO 04 |---
+    // ---| TESTE EXERCÍCIO 7 |---
 
-    fun tabuada(number: Int) {
+    println("EXERCÍCIO 7 - FORMA PURA")
+    exercicio7Puro(10)
 
-        for (i in 1..10) {
-            println("$number x $i = ${number * i}")
-        }
-    }
+    println("EXERCÍCIO 7 - FORMA COM MÉTODOS")
+    exercicio7ComMetodos(10)
 
-    //println(tabuada(4))
 
+    // ---| TESTE EXERCÍCIO 8 |---
 
-    // ---| EXERCÍCIO 05 |---
+    val numerosExercicio8 = arrayOf(1, 2, 3, 4)
 
-    fun somaArrays(array: List<Int>): Int {
+    println("EXERCÍCIO 8 - FORMA PURA")
+    println(exercicio8Puro(numerosExercicio8))
 
-        var result = array.sum()
-        return result
-    }
+    println("EXERCÍCIO 8 - FORMA COM MÉTODOS")
+    println(exercicio8ComMetodos(numerosExercicio8))
 
-    val numeros = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    //println(somaArrays(numeros))
 
+    // ---| TESTE EXERCÍCIO 9 |---
 
-    // ---| EXERCÍCIO 06 |---
+    println("EXERCÍCIO 9 - FORMA PURA")
+    println(exercicio9Puro(10))
 
-    fun maiorNumberArray(array: List<Int>): Int? {
+    println("EXERCÍCIO 9 - FORMA COM MÉTODOS")
+    println(exercicio9ComMetodos(10))
 
-        val result = array.maxOrNull()
-        return result
-    }
 
-    //println(maiorNumberArray(numeros))
+    // ---| TESTE EXERCÍCIO 10 |---
 
-    // ---| EXERCÍCIO 07 |---
+    println("EXERCÍCIO 10 - FORMA PURA")
+    println(exercicio10Puro(8.0, 7.0, 9.0))
 
-    fun contagemRegressiva(number: Int) {
+    println("EXERCÍCIO 10 - FORMA COM MÉTODOS")
+    println(exercicio10ComMetodos(8.0, 7.0, 9.0))
 
-        for (i in number downTo 0) {
-            println(i)
-        }
-    }
 
-    //contagemRegressiva(3)
+    // ---| TESTE EXERCÍCIO 11 |---
 
-    // ---| EXERCÍCIO 08 |---
-
-    fun somarParesComFor(numeros: List<Int>): Int {
-
-        var soma = 0
-
-        for (numero in numeros) {
-
-            if (numero % 2 == 0) {
-                soma += numero
-            }
-        }
-
-        return soma
-    }
-
-    //println(somarParesComFor(numeros))
-
-    // ---| EXERCÍCIO 09 |---
-
-    fun dobroNumerico(number: Int): Int {
-
-        val result = number * 2
-        return result
-    }
-
-    //println(dobroNumerico(10))
-
-
-    // ---| EXERCÍCIO 10 |---
-
-    fun mediaEscolar(nota1: Int, nota2: Int, nota3: Int): Int {
-
-        val somaNotas = nota1 + nota2 + nota3
-        val result = somaNotas / 3
-        return result
-    }
-
-    //println(mediaEscolar(5, 5, 5))
-
-
-    // ---| EXERCÍCIO 11 |---
-
-    fun conversorTemperatura(celsius: Double): Double {
-
-        val fahrenheit = (celsius * 1.8) + 32
-        return fahrenheit
-    }
-
-    //println(conversorTemperatura(3.5))
-
-
-    // ---| EXERCÍCIO 12 |---
-
-    fun batataQuente(): String{
-
-        val numbers = (100 .. 1).toList()
-        var status = ""
-
-        for (i in numbers) {
-
-            if (i % 3 == 0) {
-                status = "BATATA = $i"
-
-            } else if (i % 5 == 0) {
-                 status = "QUENTE = $i"
-
-            }else{
-                status = "BATATA-QUENTE = $i"
-            }
-        }
-
-        return status
-    }
-
-    // batataQuente()
-
-
-
-    // ---| EXERCÍCIO 13 |---
-
-    fun listaImpar(){
-
-        val listNumber = (100 ..1).toList()
-        val impar = listNumber.map { number -> number % 2 == 1}
-
-        print(impar)
-    }
-
-    // listaImpar()
-
-
-    // ---| EXERCÍCIO 14 |---
-
-    fun totalCompra(): Int{
-
-        val listPrecos = (100 .. 1).toList()
-        val result = listPrecos.sum()
-
-        return result
-    }
-
-    // totalCompra()
-
-
-    // ---| EXERCÍCIO 15 |---
-
-    fun mediaIdades(): Int{
-
-        val listaIdades = (100 .. 1).toList()
-        listaIdades.map { idade -> idade >= 18}
-
-        val quantidade   = listaIdades.size
-        val somaMaioral = listaIdades.sum()
-
-        val result = somaMaioral / quantidade
-        return result
-    }
-
-    // mediaIdades()
-
-    // ---| EXERCÍCIO 16 |---
-
-    fun fatorial(): String {
-
-        val numberFatorial = 10
-        var texto = ""
-
-        for (i in numberFatorial downTo 1) {
-
-            texto = "$numberFatorial! = $i * $i"
-        }
-
-        return texto
-    }
-
-    //fatorial()
-
-
-    // ---| EXERCÍCIO 17 |---
-
-    open class Pessoa{
-
-        var nome: String = ""
-
-            get() {
-                return field.uppercase()
-            }
-
-        var idade: Int = 0
-
-            set(value){
-
-                field = if (value >= 0) value else 0
-            }
-
-        var cidade: String = ""
-
-            get() {
-                return field.uppercase()
-            }
-
-        open fun mensagempersonalizada(): String{
-            val mensagem = ("O ser humano $nome tem $idade anos de idade e mora em $cidade!")
-            return mensagem
-        }
-    }
-
-    val pessoa = Pessoa()
-
-    pessoa.nome   = "Maria"
-    pessoa.idade  = 25
-    pessoa.cidade = "São Paulo"
-
-    //println(pessoa.mensagempersonalizada())
-
-
-    // ---| EXERCÍCIO 18 |---
-
-    fun produtoCaro(): Double{
-
-        val produto = mapOf(
-
-            "Celular"    to 38.87,
-            "Computador" to 45.00,
-            "Mouse"      to 20.00
-        )
-
-        val result = produto.values.max()
-        return result
-    }
-
-    //produtoCaro()
-
-
-    // ---| EXERCÍCIO 19 |---
-
-    class ContaBancaria{
-
-        var nomeTitular: String = ""
-            get() = field.uppercase()
-
-        private var saldo: Double = 0.0
-
-        fun depositar(number: Double) {
-            saldo += number
-        }
-
-        fun sacar(number: Double) {
-            saldo -= number
-        }
-
-        fun consultar(): Double{
-            return saldo
-        }
-    }
-
-    val contaBancaria = ContaBancaria()
-
-    //println(contaBancaria.depositar(300.00))
-    //println(contaBancaria.sacar(200.00))
-    //println(contaBancaria.consultar())
-
-
-    // ---| EXERCÍCIO 20 |---
-
-    open class Funcionario{
-
-        var nome: String = ""
-        var contaBancaria = ContaBancaria()
-        var salario = contaBancaria.consultar()
-
-        open fun salario(): Double{
-            return salario
-        }
-    }
-
-    class Gerente: Funcionario(){
-
-        override fun salario(): Double{
-
-            val acrescimo = ( 20 / 100 ) * salario
-            return acrescimo
-        }
-    }
+    println("EXERCÍCIO 11 - FORMA PURA")
+    println(exercicio11Puro(30.0))
+
+    println("EXERCÍCIO 11 - FORMA COM MÉTODOS")
+    println(exercicio11ComMetodos(30.0))
 }
